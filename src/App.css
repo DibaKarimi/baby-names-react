@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.main{
+border :5px solid;
+border-color: greenyellow greenyellow green green;
+border-radius: 10px;
+}
+.displayName{
+  border-top:    2px solid  #7e887e;
+  border-bottom: 2px solid #7e887e;
+}
+.female{
+background-color: greenyellow;
+
+
+}
+.male{
+background-color: green;
+color: white;
+
+}
+input{
+  border-color: aqua;
+  border-radius: 5px;
+  height: 50px;
+  width: 300px;
+}

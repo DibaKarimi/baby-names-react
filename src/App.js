@@ -1,25 +1,36 @@
-import logo from "./logo.svg";
 import "./App.css";
+import DisplayNames from "./DisplayNames";
+import babyNames from "./babyNamesData.json";
+import Search from "./Search";
+import React, { useState } from "react";
 
 function App() {
+  const [searchResult, setSearchResult] = useState(babyNames);
+  const [babyList, setBabyList] = useState(babyNames);
+  const search = (searchValue) => {
+    let result = babyList.filter((baby) =>
+      baby.name.toLowerCase().includes(searchValue.toLowerCase()));
+    setSearchResult(result);
+  };
+  const filterBabyGender = (babyGender) => {
+    let result = babyList.filter((baby) => (baby.sex = babyGender));
+    setSearchResult(result);
+  };
+  const resetAllBaby = () => {
+    setBabyList(babyNames);
+    console.log(babyNames);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="container m-5 main">
+        <Search
+          handleChangeInput={search}
+          filterBabyGender={filterBabyGender}
+          resetAllBaby={resetAllBaby}
+        />
+        <DisplayNames info={searchResult} />
+      </section>
     </div>
   );
 }
-
 export default App;
