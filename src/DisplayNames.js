@@ -16,7 +16,6 @@ const DisplayNames = (props) => {
     favoriteList.splice(favoriteList.indexOf(baby), 1);
     setBabyList(babyList.concat());
   };
-
   return (
     <div>
       <div>

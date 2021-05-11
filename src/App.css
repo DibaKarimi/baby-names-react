@@ -47,17 +47,27 @@ border-radius: 10px;
 }
 .female{
 background-color: greenyellow;
-
-
 }
 .male{
 background-color: green;
 color: white;
-
 }
 input{
   border-color: aqua;
   border-radius: 5px;
   height: 50px;
   width: 300px;
+  border: 5px solid;
+  border-radius:  10pt;
+  border-color: rgb(199, 235, 72) rgb(95, 187, 135) rgb(95, 187, 135) rgb(199, 235, 72);
+}
+.female{
+  background-color: rgb(199, 235, 72);
+}
+.male{
+background-color: rgb(95, 187, 135);
+}
+.names{
+  border:  solid rgb(139, 132, 132);
+  border-width: 2px 0 2px 0; 
 }
