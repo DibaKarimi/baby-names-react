@@ -6,18 +6,29 @@ import React, { useState } from "react";
 
 function App() {
   const [searchResult, setSearchResult] = useState(babyNames);
-  const [babyList, setBabyList] = useState(babyNames);
+  const [favoriteList, setFavoriteList] = useState([]);
+  const addFavorite = (baby) => {
+    setFavoriteList(favoriteList.concat(baby));
+  };
+  const removeFavorite = (baby) => {
+    favoriteList.splice(favoriteList.indexOf(baby), 1);
+    setFavoriteList(favoriteList);
+    setSearchResult(searchResult.concat());
+  };
   const search = (searchValue) => {
-    let result = babyList.filter((baby) =>
+    let result = babyNames.filter((baby) =>
       baby.name.toLowerCase().includes(searchValue.toLowerCase()));
     setSearchResult(result);
   };
   const filterBabyGender = (babyGender) => {
-    let result = babyList.filter((baby) => (baby.sex = babyGender));
+    console.log(babyGender);
+    console.log(searchResult);
+    let result = babyNames.filter((baby) => (baby.sex === babyGender));
+    console.log(result);
     setSearchResult(result);
   };
   const resetAllBaby = () => {
-    setBabyList(babyNames);
+    setSearchResult(babyNames);
     console.log(babyNames);
   };
   return (
@@ -28,7 +39,12 @@ function App() {
           filterBabyGender={filterBabyGender}
           resetAllBaby={resetAllBaby}
         />
-        <DisplayNames info={searchResult} />
+        <DisplayNames
+          info={searchResult}
+          favoriteNames={favoriteList}
+          addFavoriteList={addFavorite}
+          removeFavoriteList={removeFavorite}
+        />
       </section>
     </div>
   );

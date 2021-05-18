@@ -6,20 +6,25 @@ const Search = (props) => {
   };
   return (
     <div className="p-5">
-      <input type="text" onChange={handleChangeValue}></input>
-      <button className="btn btn-primary m-2" onClick={props.resetAllBaby}>
+      <input
+        type="text"
+        className="p-2"
+        onChange={handleChangeValue}
+        placeholder="Search for a name..."
+      ></input>
+      <button className="btn btn-warning m-2" onClick={props.resetAllBaby}>
         All
       </button>
       <button
-        className="btn btn-primary m-2"
+        className="btn btn-warning m-2"
         onClick={function handleClick() {
           props.filterBabyGender("f");
         }}
       >
-        Girls{" "}
+        Girls
       </button>
       <button
-        className="btn btn-primary m-2"
+        className="btn btn-warning m-2"
         onClick={function handleClick() {
           props.filterBabyGender("m");
         }}
